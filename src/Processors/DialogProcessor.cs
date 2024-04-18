@@ -416,6 +416,7 @@ namespace Draw
         {
             object obj;
 
+
             Stream stream;
             IFormatter binaryFormatter = new BinaryFormatter();
             if (path == null)
