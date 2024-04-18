@@ -413,9 +413,14 @@ namespace Draw
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-			string fileName = Interaction.InputBox("Enter name for the file", "File Name Box", "", 500, 300);
+            //string fileName = Interaction.InputBox("Enter name for the file", "File Name Box", "", 500, 300);
 
-			dialogProcessor.SaveFile(dialogProcessor.ShapeList, fileName);
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                dialogProcessor.SaveFile((List<Shape>)dialogProcessor.ShapeList, sfd.FileName);
+            }
 
             statusBar.Items[0].Text = "Последно действие: Записване на файл.";
         }
@@ -490,6 +495,19 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Промяна на цвета на рамката по име на фигура";
 
             viewPort.Invalidate();
+        }
+
+        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                dialogProcessor.ShapeList = (List<Shape>)dialogProcessor.LoadFile(ofd.FileName);
+                viewPort.Invalidate();
+            }
+
+            statusBar.Items[0].Text = "Последно действие: Отваряне на файл.";
         }
     }
 }
