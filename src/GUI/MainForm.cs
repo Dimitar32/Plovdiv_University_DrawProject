@@ -192,7 +192,7 @@ namespace Draw
 
 		private void RotateShapeSpeedButtonCLick(object sender, EventArgs e)
 		{
-			dialogProcessor.Rotate();
+			//dialogProcessor.Rotate();
 
 			statusBar.Items[0].Text = "Последно действие: Ротация на фигурата";
 
@@ -409,6 +409,15 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Селектиране по име";
 
             viewPort.Invalidate();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			string fileName = Interaction.InputBox("Enter name for the file", "File Name Box", "", 500, 300);
+
+			dialogProcessor.SaveFile(dialogProcessor.ShapeList, fileName);
+
+            statusBar.Items[0].Text = "Последно действие: Записване на файл.";
         }
     }
 }

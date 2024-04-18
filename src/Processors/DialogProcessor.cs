@@ -196,16 +196,16 @@ namespace Draw
         }
 
 
-        public void Rotate()
-		{
-			if (selection.Count != 0)
-			{
-				foreach (Shape shape in selection)
-				{
-					shape.Matrix.Rotate(3);
-				}
-			}
-		}
+  //      public void Rotate()
+		//{
+		//	if (selection.Count != 0)
+		//	{
+		//		foreach (Shape shape in selection)
+		//		{
+		//			shape.Matrix.Rotate(3);
+		//		}
+		//	}
+		//}
 
 		public void CreateGroupShapeFromSelection()
 		{
@@ -400,7 +400,7 @@ namespace Draw
 
             if (path == null)
             {
-                stream = new FileStream("DrawFile.asd", FileMode.Create, FileAccess.Write, FileShare.None);
+                stream = new FileStream("DrawPaint.asd", FileMode.Create, FileAccess.Write, FileShare.None);
             }
             else
             {
@@ -421,7 +421,7 @@ namespace Draw
             IFormatter binaryFormatter = new BinaryFormatter();
             if (path == null)
             {
-                stream = new FileStream("DrawFile.asd", FileMode.Open);
+                stream = new FileStream("DrawPaint.asd", FileMode.Open);
             }
             else
             {

@@ -4,10 +4,11 @@ using System.Drawing.Drawing2D;
 
 namespace Draw
 {
-	/// <summary>
-	/// Базовия клас на примитивите, който съдържа общите характеристики на примитивите.
-	/// </summary>
-	public abstract class Shape
+    /// <summary>
+    /// Базовия клас на примитивите, който съдържа общите характеристики на примитивите.
+    /// </summary>
+    [Serializable]
+    public abstract class Shape
 	{
 		#region Constructors
 		
@@ -96,12 +97,12 @@ namespace Draw
             set { borderWidth = value; }
         }
 
-		private Matrix matrix;
-		public virtual Matrix Matrix 
-		{ 
-			get { return matrix; }
-			set { matrix = value; }
-		}
+		//private Matrix matrix;
+		//public virtual Matrix Matrix 
+		//{ 
+		//	get { return matrix; }
+		//	set { matrix = value; }
+		//}
 
 		private string name;
 		public virtual string Name
