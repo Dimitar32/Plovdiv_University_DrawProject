@@ -172,7 +172,6 @@ namespace Draw
 			statusBar.Items[0].Text = "Последно действие: Рисуване на квадрат";
 
 			viewPort.Invalidate();
-
 		}
 
 		private void pickUpSpeedButton_Click(object sender, EventArgs e)
@@ -244,6 +243,7 @@ namespace Draw
 		{
 			string numberDialogWidth = Interaction.InputBox("Enter integer number", "Input Number for Shape Width Box", "", 500, 300);
 			string numberDialogHeight = Interaction.InputBox("Enter integer number", "Input Number for Shape Height Box", "", 500, 300);
+			
 			foreach (Shape shape in dialogProcessor.Selection)
 			{
 				if (int.TryParse(numberDialogWidth, out int shapeWidth) && int.TryParse(numberDialogHeight, out int shapeHeight))
@@ -260,7 +260,6 @@ namespace Draw
 			statusBar.Items[0].Text = "Последно действие: Промяна размера на фигура";
 
 			viewPort.Invalidate();
-
 		}
 
 		private void resizeShapeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -299,7 +298,6 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Разгрупиране на обекти";
 
             viewPort.Invalidate();
-
         }
 
         private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -401,7 +399,6 @@ namespace Draw
 
         private void selectByShapeNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             string nameBox = Interaction.InputBox("Enter shape name you want to select", "Name Box", "", 500, 300);
             
 			dialogProcessor.SelectByShapeName(nameBox);
@@ -413,16 +410,14 @@ namespace Draw
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //string fileName = Interaction.InputBox("Enter name for the file", "File Name Box", "", 500, 300);
-
-
             SaveFileDialog sfd = new SaveFileDialog();
+
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 dialogProcessor.SaveFile((List<Shape>)dialogProcessor.ShapeList, sfd.FileName);
             }
 
-            statusBar.Items[0].Text = "Последно действие: Записване на файл.";
+            statusBar.Items[0].Text = "Последно действие: Запаметяване на файл.";
         }
 
         private void changeFillColorByShapeNameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -507,7 +502,7 @@ namespace Draw
                 viewPort.Invalidate();
             }
 
-            statusBar.Items[0].Text = "Последно действие: Отваряне на файл.";
+            statusBar.Items[0].Text = "Последно действие: Зареждане на файл.";
         }
     }
 }

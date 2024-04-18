@@ -45,7 +45,6 @@ namespace Draw.src.Model
 
             grfx.FillEllipse(new SolidBrush(FillColor), new RectangleF(Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Width));
             grfx.DrawEllipse(new Pen(BorderColor, BorderWidth), new RectangleF(Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Width));
-
         }
     }
 }

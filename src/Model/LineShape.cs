@@ -23,14 +23,7 @@ namespace Draw
 
         public override bool Contains(PointF point)
         {
-            if (base.Contains(point))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return base.Contains(point);
         }
 
         public override void DrawSelf(Graphics grfx)
@@ -38,11 +31,6 @@ namespace Draw
             Pen pen = new Pen(BorderColor, BorderWidth);
 
             base.DrawSelf(grfx);
-            //base.RotateShape(grfx);
-            //SolidBrush brush = new SolidBrush(FillColor);
-
-            //grfx.FillRectangle(brush, Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
-            //grfx.DrawRectangle(pen, Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
 
             PointF P1 = new PointF(Rectangle.X, Rectangle.Y);
             PointF P2 = new PointF(Rectangle.X + Rectangle.Width, Rectangle.Y + Rectangle.Width);
