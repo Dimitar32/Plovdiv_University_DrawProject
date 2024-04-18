@@ -419,5 +419,77 @@ namespace Draw
 
             statusBar.Items[0].Text = "Последно действие: Записване на файл.";
         }
+
+        private void changeFillColorByShapeNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string shapeName = Interaction.InputBox("Enter shape name whose color we will change", "Change FillColor by Name Box", "", 500, 300);
+
+			if (colorDialog1.ShowDialog() == DialogResult.OK)
+			{
+				foreach (Shape shape in dialogProcessor.ShapeList)
+				{
+					if (shape.Name == shapeName)
+					{
+						shape.ChangeFillColor(colorDialog1.Color);
+						viewPort.Invalidate();
+
+					}
+				}
+			}
+
+            statusBar.Items[0].Text = "Последно действие: Промяна на цвета по име на фигура";
+
+            viewPort.Invalidate();
+        }
+
+        private void chaneBorderWidthByShapeNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string shapeName = Interaction.InputBox("Enter shape name whose borde width we will change", "Change BorderWidth by Name Box", "", 500, 300);
+
+			string bordeWidth = Interaction.InputBox("Enter width with integer", "Change BorderWidth Box", "", 500, 300);
+
+            foreach (Shape shape in dialogProcessor.ShapeList)
+            {
+                if (shape.Name == shapeName)
+                {
+					if (int.TryParse(bordeWidth, out int n))
+					{
+						shape.ChangeBorderWidth(n);
+						viewPort.Invalidate();
+                    }
+                    else
+                    {
+                        Interaction.MsgBox("Enter INTEGER number, please!", new MsgBoxStyle(), "Incorect input number message box");
+                    }
+
+                }
+            }
+
+            statusBar.Items[0].Text = "Последно действие: Промяна на дебелината на рамката по име на фигура";
+
+            viewPort.Invalidate();
+        }
+
+        private void changeBorderColorByShapeNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string shapeName = Interaction.InputBox("Enter shape name whose border color we will change", "Change BorderColor by Name Box", "", 500, 300);
+
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                foreach (Shape shape in dialogProcessor.ShapeList)
+                {
+                    if (shape.Name == shapeName)
+                    {
+                        shape.ChangeBorderColor(colorDialog1.Color);
+                        viewPort.Invalidate();
+
+                    }
+                }
+            }
+
+            statusBar.Items[0].Text = "Последно действие: Промяна на цвета на рамката по име на фигура";
+
+            viewPort.Invalidate();
+        }
     }
 }
