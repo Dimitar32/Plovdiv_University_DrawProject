@@ -411,5 +411,24 @@ namespace Draw
             formatter.Serialize(stream, obj);
             stream.Close();
         }
+
+        public object LoadFile(string path = null)
+        {
+            object obj;
+
+            Stream stream;
+            IFormatter binaryFormatter = new BinaryFormatter();
+            if (path == null)
+            {
+                stream = new FileStream("DrawFile.asd", FileMode.Open);
+            }
+            else
+            {
+                stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None);
+            }
+            obj = binaryFormatter.Deserialize(stream);
+            stream.Close();
+            return obj;
+        }
     }
 }
