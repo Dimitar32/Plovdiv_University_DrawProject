@@ -238,6 +238,7 @@ namespace Draw
 					foreach (Shape shape2 in gs.GroupShapes)
 					{
 						shapesFromGroup.Add(shape2);
+						shape2.ChangeFillColor(Color.White);
 						ShapeList.Add(shape2);
 					}
 

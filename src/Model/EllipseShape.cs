@@ -15,7 +15,7 @@ namespace Draw
         {
         }
 
-        public EllipseShape(Rectangle rectangle) : base(rectangle)
+        public EllipseShape(EllipseShape ellipse) : base(ellipse)
         {
         }
 

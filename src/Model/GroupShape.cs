@@ -62,7 +62,7 @@ namespace Draw
         {
             foreach (Shape shape in groupShapes)
             {
-                shape.FillColor = color;
+                shape.ChangeFillColor(color);
             }
         }
 
